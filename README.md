@@ -13,8 +13,8 @@ When selecting an elevator from the list, the user is directed to a elevator sta
 * Elevator status screen, shows the status of selected elevator and allows employees to change the status.
 
 To test this app with an employee (no password needed):
-| email: houde@codeboxx.biz |
-| email: thibault@codeboxx.biz |
+1. | email: houde@codeboxx.biz |
+2. | email: thibault@codeboxx.biz |
 
 ### Implementation
 - React native
