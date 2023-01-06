@@ -21,6 +21,10 @@ function MainStackNavigator() {
         initialRouteName="LoginScreen"
         screenOptions={{
           headerShown: true,
+          headerStyle: {
+            backgroundColor: "rgb(175, 11, 25)",
+          },
+          headerTintColor: "#fff",
         }}>
         <Stack.Screen name="LoginScreen" component={LoginScreen}
           options={{
@@ -30,8 +34,7 @@ function MainStackNavigator() {
         />
         <Stack.Screen name="HomeScreen" component={HomeScreen}
           options={
-            ({navigation}) => (
-            {
+            ({navigation}) => ({
               title: 'Home',
               headerTitleAlign: 'center',
               headerRight: () => (
@@ -66,7 +69,7 @@ function MainStackNavigator() {
 
 const styles = StyleSheet.create({
   text: {
-    color: 'black',
+    color: '#fff',
     textAlign: 'center',
     fontSize: 16,
     width: '100%',

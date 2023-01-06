@@ -9,7 +9,7 @@ import { NativeBaseProvider } from "native-base";
 let currentList = [];
 const getElevators = async (setElevators) => {
   try {
-    const res = await axios.get("https://87e8-142-116-212-207.ngrok.io/api/Elevators/inactive");
+    const res = await axios.get("https://8760-142-116-212-207.ngrok.io/api/Elevators/inactive");
     currentList = res.data;
 
     setElevators(res.data);
@@ -29,7 +29,7 @@ export default function HomeScreen({ navigation }) {
   }, [isFocused]);
 
   useEffect(() => {
-    console.log("elevator list is:", elevators);
+    console.log("elevator list:", elevators);
   }, [elevators]);
 
   const setStatus = (id, elevator_status) => {

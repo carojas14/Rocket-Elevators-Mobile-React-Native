@@ -9,7 +9,7 @@ const ElevatorStatusScreen = ({ navigation, route }) => {
 
      //Changing status of elevator
     async function changeStatus() {
-        return await axios.put("https://87e8-142-116-212-207.ngrok.io/api/Elevators/"+id+"/status/Active")
+        return await axios.put("https://8760-142-116-212-207.ngrok.io/api/Elevators/"+id+"/status/Active")
             .then(res => {
             console.log("Response", res);
         })
@@ -21,7 +21,7 @@ const ElevatorStatusScreen = ({ navigation, route }) => {
 
     //Verify the status of an elevator
     async function verifyStatus(){
-        return await axios.get(`https://87e8-142-116-212-207.ngrok.io/api/Elevators/${id}`)
+        return await axios.get(`https://8760-142-116-212-207.ngrok.io/api/Elevators/${id}`)
             .then(function (res) {
                 const response = res.data;
                 return response;
@@ -100,23 +100,21 @@ const ElevatorStatusScreen = ({ navigation, route }) => {
             textTransform: "uppercase",
         },
         card: {
-            padding: 10,
-            backgroundColor: "#e1dee073",
+            padding: 12,
+            backgroundColor: "#B4B4B4",
             marginTop: 10,
-            borderRadius: 5,
+            borderRadius: 8,
             width: 250,
             alignItems: 'center',
-            borderWidth: 0.7,
-            borderColor: "#0a64a0",
         },
         textActive: {
-            color: 'green',
+            color: '#25EB4A',
             textAlign: 'center',
             fontSize: 24,
             fontWeight: 'bold'
         },
         textInactive: {
-            color: 'red',
+            color: 'rgb(175, 11, 25)',
             textAlign: 'center',
             fontSize: 24,
             fontWeight: 'bold',

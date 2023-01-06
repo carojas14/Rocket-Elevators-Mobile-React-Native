@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Button} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity} from 'react-native';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Toast from 'react-native-simple-toast';
+
 
 
 
@@ -14,7 +14,7 @@ export default function LoginScreen({ navigation }) {
     const handleSubmit = async () => {
 
         try {
-            const response = await axios.get(`https://87e8-142-116-212-207.ngrok.io/api/Users/${email}`);
+            const response = await axios.get(`https://8760-142-116-212-207.ngrok.io/api/Users/${email}`);
             console.log(response.data);
             const employee = response.data;
             console.log("Employee validated:", employee);
@@ -32,6 +32,7 @@ export default function LoginScreen({ navigation }) {
         <View style={styles.mainContainer}>
             <View style={styles.container}>
                 <Image style={styles.logo} source={require("../assets/R2.png")} />
+                <Text style={styles.title}>Employees app</Text>
                 <Text style={styles.subTitle}>Sign In to your account</Text>
                 <TextInput
                     placeholder="email"
@@ -41,15 +42,12 @@ export default function LoginScreen({ navigation }) {
                     onChangeText={(value) => setEmail(value)}
                 />
 
-                <TouchableOpacity style={styles.containerButton}>
-                    <Button
-                        color="#00629C"
-                        title="Login"
-                        onPress={() => handleSubmit()}
-                    />
+                <TouchableOpacity style={styles.containerButton}
+                    onPress={() => handleSubmit()}>
+                    <Text style={styles.textButton}>
+                        Sign in
+                    </Text>
                 </TouchableOpacity>
-
-                <Text style={styles.subTitle}>Employees app</Text>
             </View>
 
         </View>
@@ -70,13 +68,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logo: {
-        width: 170,
+        width: 180,
         height: 75,
         resizeMode: "contain",
-        marginBottom: 55,
+        marginBottom: 30,
+    },
+    title: {
+        fontSize: 20,
+        color: '#00629C',
+        marginBottom: 15,
     },
     subTitle: {
-        fontSize: 20,
+        fontSize: 18,
         color: 'gray',
         marginBottom: 20,
     },
@@ -90,10 +93,22 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         backgroundColor: '#fff',
     },
+    textButton: {
+        fontSize: 14,
+        color: "#ffff",
+        fontWeight: "bold",
+        alignSelf: "center",
+        textTransform: "uppercase",
+    },
     containerButton: {
-        flexBasis: 100,
-        marginVertical: 10,
-        justifyContent: 'space-evenly'
+        elevation: 8,
+        backgroundColor: "#00629C",
+        borderRadius: 18,
+        paddingVertical: 10,
+        paddingHorizontal: 12,
+        margin: 50,
+        width: 200,
+        height: 40,
     },
 
 });
